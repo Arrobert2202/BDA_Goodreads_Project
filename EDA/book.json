@@ -1,0 +1,25 @@
+{
+    "book":{
+        "book_id": 1,
+        "title": "Example Book Title",
+        "authors": [
+            {
+                "author_id": 101,
+                "role": "Author"
+            }
+        ],
+        "description": "This is an example description of the book.",
+        "average_rating": 4.5,
+        "num_pages": 350,
+        "ratings_count": 250,
+        "text_reviews_count": 30,
+        "popular_shelves": [
+            {
+                "count": "100",
+                "name": "to-read"
+            }
+        ],
+        "series": ["1111"],
+        "similar_books": ["1", "2"]
+    }
+}

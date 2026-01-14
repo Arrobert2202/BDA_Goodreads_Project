@@ -1,0 +1,310 @@
+=== BOOKS DATA SUMMARY ===
+Total Books: 1058237
+Distinct Books by book_id: 1058237
+
+=== MISSING DATA ANALYSIS ===
+Missing description: 75702 (7.15%)
+Missing authors: 0 (0.00%)
+Missing average_rating: 0 (0.00%)
+Missing popular_shelves: 40 (0.00%)
+
+=== PAGE STATISTICS ===
+Mean pages: 278.46
+Median pages: 259
+Std dev: 949.27
+Min pages: 1
+Max pages: 945077
+Q1 (25th percentile): 168
+Q3 (75th percentile): 352
+
+=== PAGE DISTRIBUTION ===
++----------------------+----------+----------+
+|page_category         |book_count|percentage|
++----------------------+----------+----------+
+|Very Short (<100)     |138595    |13.1      |
+|Short (100-200)       |207535    |19.61     |
+|Medium-Short (200-300)|289664    |27.37     |
+|Medium (300-400)      |239560    |22.64     |
+|Medium-Long (400-500) |104277    |9.85      |
+|Long (500-700)        |56221     |5.31      |
+|Very Long (700+)      |22385     |2.12      |
++----------------------+----------+----------+
+
+
+=== SERIES OVERVIEW ===
+Books in Series: 390017 (36.86%)
+Standalone Books: 668220 (63.14%)
+
+=== SERIES COUNT DISTRIBUTION ===
++---------------+----------+----------+
+|series_category|book_count|percentage|
++---------------+----------+----------+
+|No Series      |668220    |63.14     |
+|Single Series  |350945    |33.16     |
+|2 Series       |30332     |2.87      |
+|3 Series       |6051      |0.57      |
+|4+ Series      |2689      |0.25      |
++---------------+----------+----------+
+
+
+=== AVERAGE RATING DISTRIBUTION ===
++-------------+----------+----------+
+|rating_bucket|book_count|percentage|
++-------------+----------+----------+
+|      0.0-1.0|         1|       0.0|
+|      1.0-2.0|       265|      0.03|
+|      2.0-3.0|     18863|      1.78|
+|      3.0-4.0|    638887|     60.37|
+|      4.0-5.0|    399947|     37.79|
+|          5.0|       274|      0.03|
++-------------+----------+----------+
+
+
+=== RATING STATISTICS ===
++-----------+----------+----------+----------+
+|mean_rating|std_rating|min_rating|max_rating|
++-----------+----------+----------+----------+
+|       3.87|      0.37|       0.0|       5.0|
++-----------+----------+----------+----------+
+
+
+=== ENGAGEMENT STATISTICS ===
+Mean ratings: 813.26
+Median ratings: 55
+Std dev: 16552.27
+Min ratings: 11
+Max ratings: 4899965
+Q1 (25th percentile): 24
+Q3 (75th percentile): 173
+
+=== ENGAGEMENT DISTRIBUTION ===
++--------------------+----------+----------+
+|engagement_level    |book_count|percentage|
++--------------------+----------+----------+
+|Very Low (<100)     |683982    |64.63     |
+|Low (100-1K)        |297138    |28.08     |
+|Medium (1K-10K)     |66727     |6.31      |
+|High (10K-100K)     |9439      |0.89      |
+|Very High (100K-1M) |897       |0.08      |
+|Extremely High (1M+)|54        |0.01      |
++--------------------+----------+----------+
+
+
+=== RATING QUALITY VS ENGAGEMENT ===
++----------------+----------------+----------+
+|rating_quality  |engagement_level|book_count|
++----------------+----------------+----------+
+|High (4.0+)     |High (1K-10K)   |29747     |
+|High (4.0+)     |Low (<100)      |252622    |
+|High (4.0+)     |Medium (100-1K) |112168    |
+|High (4.0+)     |Very High (10K+)|5684      |
+|Low (< 3.0)     |High (1K-10K)   |225       |
+|Low (< 3.0)     |Low (<100)      |16118     |
+|Low (< 3.0)     |Medium (100-1K) |2778      |
+|Low (< 3.0)     |Very High (10K+)|8         |
+|Medium (3.0-4.0)|High (1K-10K)   |36755     |
+|Medium (3.0-4.0)|Low (<100)      |415242    |
+|Medium (3.0-4.0)|Medium (100-1K) |182192    |
+|Medium (3.0-4.0)|Very High (10K+)|4698      |
++----------------+----------------+----------+
+
+
+=== SHELVES OVERVIEW ===
+Books with Shelves: 1058197 (100.00%)
+Books without Shelves: 40 (0.00%)
+
+=== SHELVES COUNT DISTRIBUTION ===
++----------------+----------+----------+
+|shelves_category|book_count|percentage|
++----------------+----------+----------+
+|No Shelves      |40        |0.0       |
+|1-5 Shelves     |18047     |1.71      |
+|6-10 Shelves    |44798     |4.23      |
+|11-20 Shelves   |100505    |9.5       |
+|21-50 Shelves   |196741    |18.59     |
+|50+ Shelves     |698106    |65.97     |
++----------------+----------+----------+
+
+
+Average shelves per book: 70.2
+
+=== TOP 10 MOST POPULAR SHELF NAMES (by book count) ===
++-----------------+----------------+-----------------+
+|shelf_name       |books_with_shelf|total_shelf_count|
++-----------------+----------------+-----------------+
+|to-read          |1052591         |5445718732       |
+|currently-reading|888429          |350996665        |
+|owned            |630107          |52284875         |
+|fiction          |599494          |164084390        |
+|favorites        |598143          |222191343        |
+|books-i-own      |533720          |56994566         |
+|kindle           |463609          |19473004         |
+|library          |457104          |14493869         |
+|default          |450899          |14608563         |
+|ebook            |443995          |11067865         |
++-----------------+----------------+-----------------+
+only showing top 10 rows
+
+
+=== TOP 10 MOST USED SHELVES (by total usage count) ===
++-----------------+----------------+-----------------+
+|shelf_name       |books_with_shelf|total_shelf_count|
++-----------------+----------------+-----------------+
+|to-read          |1052591         |5445718732       |
+|currently-reading|888429          |350996665        |
+|favorites        |598143          |222191343        |
+|fiction          |599494          |164084390        |
+|classics         |125781          |141807679        |
+|fantasy          |252480          |135206333        |
+|young-adult      |181951          |71754205         |
+|books-i-own      |533720          |56994566         |
+|owned            |630107          |52284875         |
+|romance          |307467          |39322775         |
++-----------------+----------------+-----------------+
+
+
+=== SIMILAR BOOKS OVERVIEW ===
+Total Books: 1058237
+Books with Similar Books: 655729 (61.96%)
+Books without Similar Books: 402508 (38.04%)
+Average similar books per book: 15.3
+
+=== SIMILAR BOOKS COUNT DISTRIBUTION ===
++----------------+----------+----------+
+|similar_category|book_count|percentage|
++----------------+----------+----------+
+|No Similar Books|402508    |38.04     |
+|1-5 Similar     |18446     |1.74      |
+|6-10 Similar    |60779     |5.74      |
+|11-20 Similar   |576504    |54.48     |
++----------------+----------+----------+
+
+
+=== SIMILAR BOOKS COUNT VS BOOK PERFORMANCE ===
++----------------+----------+----------+--------------+-----------------+
+|similar_category|book_count|avg_rating|avg_engagement|avg_similar_count|
++----------------+----------+----------+--------------+-----------------+
+|No Similar Books|402508    |3.82      |57.6          |0.0              |
+|1-10 Similar    |79225     |4.02      |1574.89       |7.26             |
+|11-20 Similar   |576504    |3.88      |1236.19       |16.41            |
++----------------+----------+----------+--------------+-----------------+
+
+
+=== TOP 20 MOST REFERENCED BOOKS (appearing as similar books) ===
++---------------+----------------+
+|similar_book_id|referenced_count|
++---------------+----------------+
+|126603         |1989            |
+|11532          |1526            |
+|188454         |1478            |
+|15717846       |1469            |
+|10165761       |1467            |
+|771507         |1426            |
+|16113          |1421            |
+|126512         |1350            |
+|778463         |1267            |
+|99329          |1262            |
+|123673         |1215            |
+|107284         |1190            |
+|91494          |1188            |
+|3311228        |1175            |
+|114156         |1104            |
+|913719         |1102            |
+|22286          |1095            |
+|274607         |1073            |
+|530748         |1047            |
+|10596          |1021            |
++---------------+----------------+
+only showing top 20 rows
+
+
+=== KEYWORD ANALYSIS IN DESCRIPTIONS ===
+Books with descriptions: 982535
+
+=== TOP KEYWORDS IN DESCRIPTIONS (sorted by frequency) ===
++-----------+----------+----------+
+|keyword    |book_count|percentage|
++-----------+----------+----------+
+|war        |227198    |23.12     |
+|love       |220897    |22.48     |
+|world      |220430    |22.43     |
+|family     |113888    |11.59     |
+|young      |110883    |11.29     |
+|past       |88518     |9.01      |
+|dark       |76744     |7.81      |
+|history    |70104     |7.14      |
+|hero       |48350     |4.92      |
+|adventure  |48214     |4.91      |
+|children   |47063     |4.79      |
+|future     |47004     |4.78      |
+|journey    |45836     |4.67      |
+|magic      |43992     |4.48      |
+|bestselling|40342     |4.11      |
+|award      |33211     |3.38      |
+|mystery    |32817     |3.34      |
+|business   |32814     |3.34      |
+|society    |27847     |2.83      |
+|science    |27767     |2.83      |
+|adult      |23616     |2.4       |
+|detective  |23477     |2.39      |
+|friendship |22846     |2.33      |
+|funny      |19460     |1.98      |
+|fantasy    |19415     |1.98      |
+|emotional  |17819     |1.81      |
+|survival   |13751     |1.4       |
+|biography  |11301     |1.15      |
+|inspiring  |9519      |0.97      |
+|villain    |5922      |0.6       |
+|psychology |4272      |0.43      |
+|self-help  |1119      |0.11      |
++-----------+----------+----------+
+
+
+=== TOP 10 MOST COMMON KEYWORDS ===
++---------+----------+----------+
+|keyword  |book_count|percentage|
++---------+----------+----------+
+|war      |227198    |23.12     |
+|love     |220897    |22.48     |
+|world    |220430    |22.43     |
+|family   |113888    |11.59     |
+|young    |110883    |11.29     |
+|past     |88518     |9.01      |
+|dark     |76744     |7.81      |
+|history  |70104     |7.14      |
+|hero     |48350     |4.92      |
+|adventure|48214     |4.91      |
++---------+----------+----------+
+
+
+=== 10 LEAST COMMON KEYWORDS ===
++----------+----------+----------+
+|keyword   |book_count|percentage|
++----------+----------+----------+
+|self-help |1119      |0.11      |
+|psychology|4272      |0.43      |
+|villain   |5922      |0.6       |
+|inspiring |9519      |0.97      |
+|biography |11301     |1.15      |
+|survival  |13751     |1.4       |
+|emotional |17819     |1.81      |
+|fantasy   |19415     |1.98      |
+|funny     |19460     |1.98      |
+|friendship|22846     |2.33      |
++----------+----------+----------+
+
+
+=== KEYWORD DENSITY IN DESCRIPTIONS ===
++----------------+----------+----------+
+|keyword_category|book_count|percentage|
++----------------+----------+----------+
+|0 keywords      |296477    |30.17     |
+|1-2 keywords    |389535    |39.65     |
+|3-5 keywords    |256836    |26.14     |
+|6-10 keywords   |39313     |4.0       |
+|11-15 keywords  |371       |0.04      |
+|15+ keywords    |3         |0.0       |
++----------------+----------+----------+
+
+
+Average keywords per book description: 1.81
