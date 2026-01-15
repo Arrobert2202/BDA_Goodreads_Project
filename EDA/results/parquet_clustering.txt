@@ -16,8 +16,8 @@
 only showing top 10 rows
 
 [2] KEYWORD-BASED CLUSTERING
-+--------+--------------------+-------+
-| book_id|               title|cluster|
++--------+--------------------+-------+                   
+| book_id|               title|cluster|                    
 +--------+--------------------+-------+
 | 7568945|             إسطاسية|      1|
 | 8839855|Mysteries and Leg...|      1|
@@ -77,3 +77,36 @@ only showing top 10 rows
 |      6|   211|
 |      7| 95856|
 +-------+------+
+
+[4] DESCRIPTION-BASED CLUSTERING (TF-IDF + K-Means)
++-------+--------------------+-------+
+|book_id|               title|cluster|
++-------+--------------------+-------+
+|7327624|The Unschooled Wi...|      0|
+|6066819|Best Friends Forever|      0|
+| 287141|The Aeneid for Bo...|      0|
+|6066812|All's Fairy in Lo...|      0|
+| 287149|The Devil's Notebook|      0|
+|6066814|Crowner Royal (Cr...|      0|
+|  89376|              Heaven|      4|
+|  89377|   Penny from Heaven|      0|
+|  89378|          Dog Heaven|      0|
+|7203847|   The Tommyknockers|      0|
++-------+--------------------+-------+
+only showing top 10 rows
+
+
+
+
++-------+-----+
+|cluster|count|
++-------+-----+
+|      0|31517|
+|      1| 2330|
+|      2| 8385|
+|      3|  435|
+|      4|21171|
+|      5|  307|
+|      6| 6284|
+|      7| 7852|
++-------+-----+

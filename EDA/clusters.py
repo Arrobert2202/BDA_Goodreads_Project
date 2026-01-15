@@ -1,13 +1,13 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, explode, collect_list, lower, regexp_replace
 from pyspark.ml.feature import Tokenizer, StopWordsRemover, HashingTF, IDF, VectorAssembler, StandardScaler
-from pyspark.ml.clustering import KMeans, LDA
+from pyspark.ml.clustering import KMeans
 from pyspark.ml import Pipeline
 
 SAMPLE_BASE = "hdfs:///user/ubuntu/proiect_bda/output_eda/sample_json"
 FULL_BASE = "hdfs:///user/ubuntu/proiect_bda/output_eda/parquet"
 
-OUTPUT_DIR = FULL_BASE + "/output_parquet_clusters"
+OUTPUT_DIR = SAMPLE_BASE + "/output_sample_clusters"
 
 
 keywords = [
@@ -31,7 +31,8 @@ spark = SparkSession.builder \
 
 spark.sparkContext.setLogLevel("WARN")
 
-df_books = spark.read.parquet(f"{FULL_BASE}")
+df_books = spark.read.json(f"{SAMPLE_BASE}")
+df_books.cache()
 
 
 # =============================================================================
@@ -182,46 +183,6 @@ def description_clustering(df, num_clusters=10):
 
 
 # =============================================================================
-# APPROACH 5: LDA TOPIC MODELING
-# Latent Dirichlet Allocation for discovering latent topics
-# =============================================================================
-def lda_topic_modeling(df, num_topics=10):
-    """
-    Apply LDA to discover latent topics from book descriptions.
-    """
-    df_text = df.select(
-        col("book_id"),
-        col("title"),
-        lower(regexp_replace(col("description"), "[^a-zA-Z\\s]", "")).alias("description_clean")
-    ).filter(col("description_clean").isNotNull() & (col("description_clean") != ""))
-    
-    # Tokenize and vectorize
-    tokenizer = Tokenizer(inputCol="description_clean", outputCol="words")
-    stopwords_remover = StopWordsRemover(inputCol="words", outputCol="filtered_words")
-    cv = HashingTF(inputCol="filtered_words", outputCol="features", numFeatures=1000)
-    
-    # Apply transformations
-    df_tokens = tokenizer.transform(df_text)
-    df_filtered = stopwords_remover.transform(df_tokens)
-    df_vectors = cv.transform(df_filtered)
-    
-    # Fit LDA model
-    lda = LDA(k=num_topics, maxIter=20, seed=42)
-    lda_model = lda.fit(df_vectors)
-    
-    # Get topic distribution for each document
-    df_topics = lda_model.transform(df_vectors)
-    
-    # Get top words per topic (for interpretation)
-    topics = lda_model.describeTopics(maxTermsPerTopic=10)
-    
-    return df_topics.select("book_id", "title", "topicDistribution"), topics, lda_model
-
-
-
-
-
-# =============================================================================
 # MAIN EXECUTION
 # =============================================================================
 if __name__ == "__main__":
@@ -258,14 +219,6 @@ if __name__ == "__main__":
     df_desc_clusters.groupBy("cluster").count().orderBy("cluster").show()
 
     df_desc_clusters.write.mode("overwrite").parquet(f"{OUTPUT_DIR}/description_clusters")    
-
-    
-    print("\n[5] LDA TOPIC MODELING")
-    df_lda, topic_words, lda_model = lda_topic_modeling(df_books, num_topics=8)
-    print("Topic word indices (use vocabulary to map to actual words):")
-    topic_words.show(truncate=False)
-    
-    df_lda.write.mode("overwrite").parquet(f"{OUTPUT_DIR}/lda_topics")
     
     
     print("\n✓ Results saved to:", OUTPUT_DIR)
